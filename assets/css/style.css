@@ -1442,3 +1442,8 @@ body {
     width: 100%;
   }
 
+
+  .no-border {
+    border: none;
+  }
+
