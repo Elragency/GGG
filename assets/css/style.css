@@ -1396,3 +1396,49 @@ body {
   .footer-top .container { grid-template-columns: 1fr 0.6fr 0.9fr 1fr; }
 
 }
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    text-align: center;
+    background-color: #f9f9f9;  /* choose a suitable background color */
+    color: black;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); /* optional */
+    z-index: 1;
+}
+.dropdown-menu a {
+  color: black; 
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+/* Add a media query to hide the dropdown menu on screens smaller than 768px */
+@media (max-width: 767px) {
+  .dropdown:hover .dropdown-menu {
+    display: none;
+  }
+}
+
+
+
+.custom-input {
+  background-color: white;
+  box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  border: none;
+  padding: 10px;
+}
+
+
+  .custom-input-taller {
+    background-color: white;
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    border: none;
+    padding: 10px;
+    height: 150px;  /* adjust as needed */
+    width: auto;
+  }
+
