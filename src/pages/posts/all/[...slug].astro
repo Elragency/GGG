@@ -1,0 +1,35 @@
+---
+import { getCollection } from "astro:content";
+
+// layout
+import Main from "../../../layout/Main.astro";
+
+// components
+import PageMainHeader from "../../../components/PageMainHeader.astro";
+import PageMainContent from "../../../components/PageMainContent.astro";
+
+export async function getStaticPaths() {
+
+    const enPosts = await getCollection('posts', ({id}) => id.includes('en/'));
+
+    return enPosts.map(post => ({
+        params: { slug: post.slug },
+        props: { post }
+    }));
+
+};
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+---
+<Main id="posts" title={post.data.title} lang="en">
+
+    <PageMainHeader>
+        {post.data.title}
+    </PageMainHeader>
+
+    <PageMainContent>
+        <Content />
+    </PageMainContent>
+
+</Main>

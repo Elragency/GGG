@@ -1,0 +1,59 @@
+---
+import { getCollection } from "astro:content";
+
+// layout
+import Main from "../../../layout/Main.astro";
+
+// components
+import PageCategories from "../../../components/PageCategories.astro";
+import PagePagination from "../../../components/PagePagination.astro";
+import ListItem from "../../../components/ListItem.astro";
+
+// meta
+import cats from "../../../meta/cats.json";
+
+export async function getStaticPaths({ paginate }) {
+
+    const paginatedCats = cats['en'].map( async (cat) => {
+
+        if(cat.id === 1) {
+
+            const enPostsAll = await getCollection('posts', post => post.id.includes('en/'));
+
+            return paginate( enPostsAll, { pageSize: 5, params: { cat: cat.slug }, props: { cats: cats['en'], currentCat: cat } });    
+
+        }
+
+        const enPostsByCat = await getCollection('posts', post => {
+
+            return post.id.includes('en/') && (post.data.cat === cat.id);
+
+        });
+
+        return paginate( enPostsByCat, { pageSize: 5, params: { cat: cat.slug }, props: { cats: cats['en'], currentCat: cat } });
+
+    });
+
+    return await Promise.all(paginatedCats);
+
+};
+
+const { page, cats, currentCat } = Astro.props;
+---
+<Main id="posts" title={currentCat.name} lang="en">
+
+    <PageCategories cats={cats} currentCat={currentCat} />
+
+    <ul class="mt-8">
+        {
+            page.data.map(post => {
+                return <ListItem>
+                    <a href={ `/posts/${currentCat.slug}/${post.slug}` }>{ post.data.title }</a>
+                </ListItem>
+            })
+        }
+    </ul>
+
+    <PagePagination page={page} currentCat={currentCat} postsUrl="/posts" />
+    
+</Main>

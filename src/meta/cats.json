@@ -1,0 +1,17 @@
+{
+    
+    "en": [
+        { "id": 1, "name": "all", "slug": "all", "url": "/posts/all/1"},
+        { "id": 2, "name": "cat 1", "slug": "cat-1", "url": "/posts/cat-1/1"},
+        { "id": 3, "name": "cat 2", "slug": "cat-2", "url": "/posts/cat-2/1"},
+        { "id": 4, "name": "cat 3", "slug": "cat-3", "url": "/posts/cat-3/1"},
+        { "id": 5, "name": "cat 4", "slug": "cat-4", "url": "/posts/cat-4/1"}
+    ],
+    "fr": [
+        { "id": 1, "name": "Chat 1", "slug": "all", "url": "/fr/posts/all/1"},
+        { "id": 2, "name": "chat 2", "slug": "cat-1", "url": "/fr/posts/cat-1/1"},
+        { "id": 3, "name": "chat 3", "slug": "cat-2", "url": "/fr/posts/cat-2/1"},
+        { "id": 4, "name": "chat 4", "slug": "cat-3", "url": "/fr/posts/cat-3/1"},
+        { "id": 5, "name": "chat 5", "slug": "cat-4", "url": "/fr/posts/cat-4/1"}
+    ]
+}
