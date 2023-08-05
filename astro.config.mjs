@@ -1,7 +1,6 @@
 import { defineConfig } from 'astro/config';
-import tailwind from "@astrojs/tailwind";
 
-import netlify from "@astrojs/netlify/functions";
+import tailwind from "@astrojs/tailwind";
 
 // https://astro.build/config
 export default defineConfig({
@@ -11,10 +10,8 @@ export default defineConfig({
       preprocessorOptions: {
         scss: {
           additionalData: '@import "./src/styles/_mixins.scss";'
-        }
-      }
+        },
+      },
     }
-  },
-  output: "server",
-  adapter: netlify()
+  }
 });
